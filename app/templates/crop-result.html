@@ -1,0 +1,76 @@
+{% extends 'layout.html' %} {% block body %}
+
+<style>
+  .farm-prediction-container {
+    margin: 12rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .farm-prediction-card {
+    background-color: #0a192f;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 3rem 2rem;
+    border: 1px solid #8892b0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .farm-prediction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  .farm-prediction-title {
+    color: #e6f1ff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+  }
+
+  .farm-prediction-highlight {
+    color: #64ffda;
+    font-style: italic;
+    position: relative;
+    padding: 0 0.3rem;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+
+<div class="farm-prediction-container">
+  <div class="farm-prediction-card">
+    <h1 class="farm-prediction-title">
+      <b>You should grow <i class="farm-prediction-highlight">{{ prediction }}</i> in your farm</b>
+    </h1>
+  </div>
+</div>
+{% endblock %}

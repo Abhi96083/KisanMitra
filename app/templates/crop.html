@@ -1,0 +1,183 @@
+{% extends 'layout.html' %} {% block body %}
+
+<style>
+  /* Dark Blue Theme for Crop Recommendation Form */
+  html body {
+    background-color: #172a45;
+
+  }
+
+  .harvestify-page-title {
+    text-align: center;
+    margin: 0px;
+    color: #64ffda;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding-bottom: 15px;
+    position: relative;
+  }
+
+  .harvestify-page-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #64ffda;
+  }
+
+  .harvestify-form-container {
+    width: 500px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    color: #e6f1ff;
+    border-radius: 15px;
+    padding: 25px;
+    background-color: #0a192f;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-in-out;
+
+  }
+
+  .harvestify-form-group {
+    margin-bottom: 20px;
+  }
+
+  .harvestify-form-label {
+    font-size: 17px;
+    font-weight: bold;
+    color: #8892b0;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .harvestify-form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #8892b0;
+    background-color: rgba(136, 146, 176, 0.1);
+    color: #e6f1ff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .harvestify-form-control:focus {
+    outline: none;
+    border-color: #64ffda;
+    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+  }
+
+  .harvestify-form-control::placeholder {
+    color: #8892b0;
+    opacity: 0.7;
+  }
+
+  .harvestify-form-control option {
+    background-color: #0a192f;
+    color: #e6f1ff;
+  }
+
+  .harvestify-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .harvestify-predict-btn {
+    background: linear-gradient(135deg, #64ffda 0%, #0a192f 100%);
+    color: #0a192f;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 130px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .harvestify-predict-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #64ffda 20%, #0a192f 120%);
+  }
+
+  .harvestify-predict-btn:active {
+    transform: translateY(1px);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<!--Form Section-->
+<br /><br />
+<h2 class="harvestify-page-title">
+  <b>Find out the most suitable crop to grow in your farm</b>
+</h2>
+<br />
+
+<div class="harvestify-form-container">
+  <form method="POST" action="{{ url_for('crop_prediction') }}">
+    <div class="harvestify-form-group">
+      <label for="Nitrogen" class="harvestify-form-label">Nitrogen</label>
+      <input type="number" class="harvestify-form-control" id="Nitrogen" name="nitrogen"
+        placeholder="Enter the value " required />
+    </div>
+    <div class="harvestify-form-group">
+      <label for="Phosphorous" class="harvestify-form-label">Phosphorous</label>
+      <input type="number" class="harvestify-form-control" id="Phosphorous" name="phosphorous"
+        placeholder="Enter the value " required />
+    </div>
+
+    <div class="harvestify-form-group">
+      <label for="Pottasium" class="harvestify-form-label">Pottasium</label>
+      <input type="number" class="harvestify-form-control" id="Pottasium" name="pottasium"
+        placeholder="Enter the value" required />
+    </div>
+    <div class="harvestify-form-group">
+      <label for="ph" class="harvestify-form-label">pH level</label>
+      <input type="number" step="0.01" class="harvestify-form-control" id="ph" name="ph" placeholder="Enter the value"
+        required />
+    </div>
+    <div class="harvestify-form-group">
+      <label for="Rainfall" class="harvestify-form-label">Rainfall (in mm)</label>
+      <input type="number" step="0.01" class="harvestify-form-control" id="Rainfall" name="rainfall"
+        placeholder="Enter the value" required />
+    </div>
+    <div class="harvestify-form-group">
+      <label for="State" class="harvestify-form-label">State</label>
+      <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="harvestify-form-control"
+        required></select>
+      <br />
+      <label for="City" class="harvestify-form-label">City</label>
+      <select id="state" class="harvestify-form-control" name="city" required></select>
+      <script language="javascript">
+        print_state("sts");
+      </script>
+    </div>
+
+    <div class="harvestify-btn-container">
+      <button type="submit" class="harvestify-predict-btn">
+        Predict
+      </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

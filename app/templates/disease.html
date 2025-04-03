@@ -1,0 +1,156 @@
+{% extends 'layout.html' %} {% block body %}
+
+<style>
+  .plant-body {
+    background-color: #172a45;
+    color: #e6f1ff;
+    font-family: 'Calibri', sans-serif;
+    transition: all 0.3s ease;
+    padding-bottom: 20px;
+  }
+
+  .plant-heading {
+    text-align: center;
+    margin: 0;
+    color: #64ffda;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    animation: fadeIn 1s ease-in;
+  }
+
+  .plant-container {
+    width: 500px;
+    /* height: 20rem; */
+    margin: 0 auto;
+    background-color: #0a192f;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .plant-container:hover {
+    transform: translateY(-5px);
+  }
+
+  .plant-form-title {
+    color: #64ffda;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .plant-file-input {
+    font-weight: bold;
+    color: #8892b0;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgba(136, 146, 176, 0.1);
+    border: 1px solid #8892b0;
+    transition: all 0.3s ease;
+  }
+
+  .plant-file-input:hover {
+    border-color: #64ffda;
+  }
+
+  .plant-preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 1rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .plant-submit-btn {
+    width: 100%;
+    padding: 8px;
+    font-weight: bold;
+    background-color: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  .plant-submit-btn:hover {
+    background-color: rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
+    }
+  }
+</style>
+
+<div class="plant-body">
+  <br /><br />
+  <h2 class="plant-heading">
+    Find out which disease has been caught by your plant
+  </h2>
+  <br /><br />
+
+  <div class="plant-container">
+    <form class="form-signin" method=post enctype=multipart/form-data>
+      <h2 class="plant-form-title">Please Upload The Image</h2>
+      <input type="file" name="file" class="plant-file-input" id="inputfile" onchange="preview_image(event)">
+      <br>
+      <br>
+      <img id="output-image" class="plant-preview-image" />
+      <button class="plant-submit-btn" type="submit">Predict</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    function preview_image(event) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var output = document.getElementById('output-image')
+        output.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+</div>
+{% endblock %}
