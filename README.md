@@ -94,7 +94,43 @@
     python app.py
     ```
 -   Open the localhost url provided after running `app.py` and now you can use the project locally in your web browser.
+##  REQUIREMENT OF HARWARE FOR TAKING INPUTS FOR THIS PROJECT..
+-   Here we will use the soil testor which is android base which has certain things mentioned below
+-
+-   What the Device Is
+The SNS-08 is a portable, handheld soil sensor that connects directly to a phone or computer using a USB Type-C (also supports Micro-USB and USB). It’s designed to give farmers, gardeners, and researchers eight important soil measurements in one rugged tool, instead of needing separate instruments.
 
+What It Measures (8-in-1)
+ 1. Moisture – how much water is in the soil.
+ 2.Temperature – the heat level of the soil, important for seed germination and crop growth.
+ 3.Electrical Conductivity (EC) – indicates the concentration of salts and dissolved nutrients.
+ 4.Salinity – measures soil salt levels (derived from EC).
+ 5.pH – shows if the soil is acidic, neutral, or alkaline, which affects nutrient availability.
+ 6.Nitrogen (N) – one of the most vital nutrients for plant growth.
+ 7.Phosphorus (P) – supports root and flower development.
+ 8.Potassium (K) – essential for disease resistance and overall plant health.
+ 9.Together, N-P-K are the “fertility” indicators of soil
+
+How It Works
+  The device uses FDR technology (Frequency Domain Reflectometry), which is a reliable method to sense soil moisture and nutrients.
+  When inserted into soil (probe goes about 7 cm deep and reads a 7 cm diameter zone), it quickly detects conditions.
+  Data is shown on a connected Android phone, tablet, or Windows device using the app/software.
+  It does not require batteries – it draws power directly from the USB connection.
+
+Build and Durability
+  The body and electrodes are made of high-strength alloy to resist corrosion.
+  The enclosure is epoxy-sealed with IP67 waterproof rating, meaning it can handle water, dust, and tough field conditions.
+  It operates in extreme environments from –40 °C to 80 °C.
+  
+Speed and Logging
+  It gives results in less than 5 seconds after insertion.
+  Data can be logged and exported for later trend analysis, which is useful in farm management or research studies.
+
+Why It’s Useful
+  Instead of guessing soil health or relying only on lab testing, this device provides instant, on-site analysis. That means farmers and gardeners can adjust fertilizers, water, and soil        treatments immediately, saving time, improving yields, and reducing overuse of chemicals.
+![demo](https://drive.google.com/uc?export=view&id=1zD33DEckaiXmQwUwUQXDvFYQAK0V7RCg)
+
+  
 ## DEMO
 
 -   ### Crop recommendation system
