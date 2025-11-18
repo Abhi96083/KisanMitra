@@ -2,160 +2,81 @@
 
 <style>
   .soil-body {
-    background-color: #172a45;
-    color: #e6f1ff;
-    font-family: 'Calibri', sans-serif;
-    transition: all 0.3s ease;
-    padding-bottom: 20px;
-  }
+  background: linear-gradient(135deg, #f1fff7, #ffffff);
+  color: #1d3b2f;
+  padding: 3rem 0;
+}
 
-  .soil-heading {
-    text-align: center;
-    margin: 0;
-    color: #64ffda;
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 1rem 0;
-    animation: fadeIn 1s ease-in;
-  }
+.soil-heading {
+  color: #0a7a34;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-  .soil-container {
-    width: 500px;
-    margin: 0 auto;
-    background-color: #0a192f;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    animation: slideUp 0.8s ease-out;
-  }
+.soil-container {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  padding: 2.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-  .soil-container:hover {
-    transform: translateY(-5px);
-  }
+.soil-form-group {
+  margin-bottom: 1.5rem;
+}
 
-  .soil-form-group {
-    margin-bottom: 1.5rem;
-  }
+.soil-label {
+  color: #000000;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
 
-  .soil-label {
-    display: block;
-    color: #64ffda;
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    transition: all 0.3s ease;
-  }
+.soil-input, .soil-select {
+  background: #f6fff6;
+  border: 2px solid #a4c3b2;
+  color: #000000;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
 
-  .soil-input,
-  .soil-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgba(136, 146, 176, 0.1);
-    border: 1px solid #8892b0;
-    color: #e6f1ff;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
+.soil-input:focus, .soil-select:focus {
+  outline: none;
+  border-color: #0a7a34;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(10, 122, 52, 0.2);
+}
 
-  .soil-input:focus,
-  .soil-select:focus {
-    border-color: #64ffda;
-    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
-    outline: none;
-  }
+.soil-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
 
-  .soil-input:hover,
-  .soil-select:hover {
-    border-color: #64ffda;
-  }
+.soil-submit-btn {
+  background: linear-gradient(135deg, #0a7a34, #145a32);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(10, 122, 52, 0.3);
+}
 
-  .soil-select {
-    -webkit-appearance: none;
-    /* Remove default styles in Webkit browsers */
-    -moz-appearance: none;
-    /* Remove default styles in Firefox */
-    appearance: none;
-    /* General reset */
-    background-color: rgba(136, 146, 176, 0.1);
-    color: #e6f1ff;
-    border: 1px solid #8892b0;
-    padding-right: 30px;
-    /* Add padding to accommodate dropdown icon */
-    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1 4.5a.5.5 0 0 1 .854-.354L8 9.793l6.146-5.647A.5.5 0 0 1 15 4.5h-14z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 1rem;
-  }
+.soil-submit-btn:hover {
+  background: linear-gradient(135deg, #12843c, #1d7a47);
+  box-shadow: 0 6px 20px rgba(10, 122, 52, 0.4);
+  transform: translateY(-2px);
+}
 
-  .soil-select option {
-    background-color: #0a192f;
-    color: #e6f1ff;
-    font-weight: bold;
-    padding: 10px;
-  }
-
-  .soil-button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-
-  .soil-submit-btn {
-    background-color: rgba(100, 255, 218, 0.1);
-    color: #64ffda;
-    font-weight: bold;
-    width: 130px;
-    height: 50px;
-    border-radius: 12px;
-    font-size: 21px;
-    border: 1px solid #64ffda;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-  }
-
-  .soil-submit-btn:hover {
-    background-color: rgba(100, 255, 218, 0.2);
-    transform: translateY(-2px);
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
-    }
-
-    70% {
-      box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
-    }
-
-    100% {
-      box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
-    }
-  }
 </style>
 
 <div class="soil-body">
