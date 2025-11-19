@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Home",
+    "crop": "Crop",
+    "fertilizer": "Fertilizer",
+    "disease": "Disease"
+  },
+  "home": {
+    "title": "KisanMitra",
+    "intro": "INtro: Get informed decisions about your farming strategy.",
+    "subtitle": "Get informed decisions about your farming strategy.",
+    "questions_title": "Here are some questions we'll answer",
+    "q1": "1. What crop to plant here based on the Test?",
+    "q2": "2. What fertilizer to use?",
+    "q3": "3. Which disease do your crop have?",
+    "q4": "4. How to cure the disease?",
+    "about_title": "About Us",
+    "about_text": "We use state-of-the-art machine learning and deep learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a super awesome successful yield.",
+    "services_title": "Our Services",
+    "crop_service": "Crop",
+    "crop_desc": "Recommendation about the type of crops to be cultivated which is best suited for the respective conditions",
+    "fertilizer_service": "Fertilizer",
+    "fertilizer_desc": "Recommendation about the type of fertilizer best suited for the particular soil and the recommended crop",
+    "disease_service": "Crop Disease",
+    "disease_desc": "Predicting the name and causes of crop disease and suggestions to cure it"
+  },
+  "crop": {
+    "title": "Find out the most suitable crop to grow in your farm",
+    "nitrogen": "Nitrogen",
+    "phosphorous": "Phosphorous",
+    "pottasium": "Pottasium",
+    "ph": "pH level",
+    "rainfall": "Rainfall (in mm)",
+    "state": "State",
+    "city": "City",
+    "predict": "Predict",
+    "enter_value": "Enter the value"
+  },
+  "crop_result": {
+    "title": "Crop Prediction Result",
+    "recommended_crop": "Recommended Crop",
+    "go_back": "Go Back"
+  },
+  "disease": {
+    "title": "Find out if your crop is diseased",
+    "upload": "Upload Image",
+    "submit": "Submit",
+    "image_info": "Please upload a clear leaf image for disease detection"
+  },
+  "disease_result": {
+    "title": "Disease Prediction Result",
+    "prediction": "Prediction",
+    "go_back": "Go Back"
+  },
+  "fertilizer": {
+    "title": "Get informed advice on fertilizer based on soil",
+    "nitrogen": "Nitrogen",
+    "phosphorous": "Phosphorous",
+    "pottasium": "Pottasium",
+    "crop": "Crop you want to grow",
+    "select_crop": "Select crop",
+    "predict": "Predict",
+    "enter_value": "Enter the value (example:50)"
+  },
+  "fertilizer_result": {
+    "title": "Fertilizer Recommendation Result",
+    "recommendation": "Recommendation",
+    "go_back": "Go Back"
+  },
+  "footer": {
+    "tagline": "An Environmental Intelligence Startup",
+    "credit": "Made with ❤️ by Abhinav",
+    "copyright": "Copyright 2025 Abhinav"
+  }
+}
