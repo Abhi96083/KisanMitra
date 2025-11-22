@@ -97,6 +97,33 @@ html, body {
 			display: block;
 
 		}
+		.language-selector {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.language-selector select {
+			padding: 8px 12px;
+			border-radius: 6px;
+			border: 2px solid #0a7a34;
+			background: #ffffff;
+			color: #0a7a34;
+			font-weight: 600;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.language-selector select:hover {
+			background: #f6fff6;
+			box-shadow: 0 0 8px rgba(10, 122, 52, 0.2);
+		}
+
+		.language-selector select:focus {
+			outline: none;
+			border-color: #12843c;
+			box-shadow: 0 0 8px rgba(10, 122, 52, 0.3);
+		}
 	</style>
 </head>
 
@@ -115,18 +142,27 @@ html, body {
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item {% if request.endpoint == 'home' %}active{% endif %}">
-						<a class="nav-link" href="{{ url_for('home') }}">Home
+						<a class="nav-link" href="{{ url_for('home') }}">{{ translations.nav.home }}
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 					<li class="nav-item {% if request.endpoint == 'crop_recommend' %}active{% endif %}">
-						<a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
+						<a class="nav-link" href="{{ url_for('crop_recommend') }}">{{ translations.nav.crop }}</a>
 					</li>
 					<li class="nav-item {% if request.endpoint == 'fertilizer_recommendation' %}active{% endif %}">
-						<a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+						<a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">{{ translations.nav.fertilizer }}</a>
 					</li>
 					<li class="nav-item {% if request.endpoint == 'disease_prediction' %}active{% endif %}">
-						<a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease</a>
+						<a class="nav-link" href="{{ url_for('disease_prediction') }}">{{ translations.nav.disease }}</a>
+					</li>
+					<li class="nav-item">
+						<div class="language-selector">
+							<select id="languageSelect" onchange="changeLanguage(this.value)">
+								<option value="en" {% if current_lang == 'en' %}selected{% endif %}>English (EN)</option>
+								<option value="hi" {% if current_lang == 'hi' %}selected{% endif %}>हिंदी (HI)</option>
+								<option value="kn" {% if current_lang == 'kn' %}selected{% endif %}>ಕನ್ನಡ (KN)</option>
+							</select>
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -144,7 +180,7 @@ html, body {
 			<!-- logo -->
 			<h2 class="logo2 text-center harvestify-title">
 				<a href="{{ url_for('home') }}">
-					KisanMitra
+					{{ translations.home.title }}
 				</a>
 			</h2>
 			<!-- //logo -->
@@ -158,20 +194,29 @@ html, body {
 				<!-- <a href="community.html">Community</a> -->
 				</p>
 			</div>
-			<div class="w3l-copy text-center">
-				<p class="text-da">An Environmental Intelligence Startup<br> </p>
-			</div>
-			<p class="homelogo">
-			<p>Made with ❤️ by Abhinav</p>
-			<p>&copy; Copyright 2025 Abhinav </p>
-			
+		<div class="w3l-copy text-center">
+			<p class="text-da">{{ translations.footer.tagline }}<br> </p>
 		</div>
+		<p class="homelogo">
+		<p>{{ translations.footer.credit }}</p>
+		<p>&copy; {{ translations.footer.copyright }} </p>		</div>
 	</footer>
 	<!-- //footer -->
 
 	<!-- move top icon -->
 	<a href="#home" class="move-top text-center"></a>
 	<!-- //move top icon -->
+
+	<script>
+		function changeLanguage(langCode) {
+			fetch('/set-language/' + langCode)
+				.then(() => {
+					// Reload page to apply new language
+					window.location.reload();
+				})
+				.catch(error => console.error('Error:', error));
+		}
+	</script>
 </body>
 
 </html>

@@ -134,16 +134,16 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 <section class="harvestify-banner" id="home">
 	<div class="harvestify-banner-content">
 		<div class="harvestify-banner-info">
-			<h1 class="harvestify-title">KisanMitra</h1>
-			<p class="harvestify-subtitle">INTRO: An AI-Driven Smart Agriculture System for Crop Prediction, Fertilizer Recommendation, and Disease Detection.</p>
+			<h1 class="harvestify-title">{{ translations.home.title }}</h1>
+			<p class="harvestify-subtitle">{{ translations.home.intro }}</p>
 			<!-- <div style="width:12px;height:12px;background:#fff;border-radius:50%;margin:1rem auto;"></div> -->
-			<p class="harvestify-subtitle" style="margin-top: 1rem;"><b>👉🏻Get informed decisions about your farming strategy.</b></p>
-			<p class="harvestify-subtitle"><strong>Here are some questions we'll answer</strong></p>
+			<p class="harvestify-subtitle" style="margin-top: 1rem;"><b>👉🏻{{ translations.home.subtitle }}</b></p>
+			<p class="harvestify-subtitle"><strong>{{ translations.home.questions_title }}</strong></p>
 			<div class="harvestify-questions">
-				<p><b>1. What crop to plant here based on the Test?</b></p>
-				<p><b>2. What fertilizer to use?</b></p>
-				<p><b>3. Which disease do your crop have?</b></p>
-				<p><b>4. How to cure the disease?</b></p>
+				<p><b>{{ translations.home.q1 }}</b></p>
+				<p><b>{{ translations.home.q2 }}</b></p>
+				<p><b>{{ translations.home.q3 }}</b></p>
+				<p><b>{{ translations.home.q4 }}</b></p>
 			</div>
 		</div>
 	</div>
@@ -154,7 +154,7 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 <!-- core values -->
 <section class="core-value py-5">
 	<div class="container py-md-4">
-		<h3 class="heading mb-sm-5 mb-4 text-center"> About Us</h3>
+		<h3 class="heading mb-sm-5 mb-4 text-center"> {{ translations.home.about_title }}</h3>
 		<div class="row core-grids">
 			<div class="col-lg-6 core-left">
 				<img src="https://images.squarespace-cdn.com/content/v1/557fc1b4e4b0be4907177aa4/1598584817645-6JVA1QANS7FYBRG0J9X4/image-asset.jpeg" class="img-fluid" alt="" />
@@ -162,11 +162,7 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 			<div class="col-lg-6 core-right">
 				<h3 class="mt-4">Improving Agriculture, Improving Lives, Cultivating Crops To Make Farmers Increase
 					Profit.</h3>
-				<p class="mt-3"><b>We use state-of-the-art machine learning and deep learning technologies to help you
-					guide through
-					the entire farming process. Make informed decisions to understand the demographics of your area,
-					understand the
-					factors that affect your crop and keep them healthy for a super awesome successful yield.</b></p>
+				<p class="mt-3"><b>{{ translations.home.about_text }}</b></p>
 			</div>
 		</div>
 	</div>
@@ -177,7 +173,7 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 <!-- Products & Services -->
 <section class="harvestify-services py-5">
 	<div class="harvestify-container py-md-5">
-		<h3 class="harvestify-heading mb-sm-5 mb-4 text-center">Our Services</h3>
+		<h3 class="harvestify-heading mb-sm-5 mb-4 text-center">{{ translations.home.services_title }}</h3>
 		<div class="harvestify-services-grid">
 			<!-- Crop Service -->
 			<div class="harvestify-service-card">
@@ -186,9 +182,8 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 				</div>
 				<a href="{{ url_for('crop_recommend') }}" class="harvestify-service-link">
 					<div class="harvestify-service-content">
-						<h4>Crop</h4>
-						<p><b>Recommendation about the type of crops to be cultivated which is best suited for the
-							respective conditions</b></p>
+						<h4>{{ translations.home.crop_service }}</h4>
+						<p><b>{{ translations.home.crop_desc }}</b></p>
 					</div>
 				</a>
 			</div>
@@ -200,9 +195,8 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 				</div>
 				<a href="{{ url_for('fertilizer_recommendation') }}" class="harvestify-service-link">
 					<div class="harvestify-service-content">
-						<h4>Fertilizer</h4>
-						<p><b>Recommendation about the type of fertilizer best suited for the particular soil and the
-							recommended crop</b></p>
+						<h4>{{ translations.home.fertilizer_service }}</h4>
+						<p><b>{{ translations.home.fertilizer_desc }}</b></p>
 					</div>
 				</a>
 			</div>
@@ -214,8 +208,8 @@ background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
 				</div>
 				<a href="{{ url_for('disease_prediction') }}" class="harvestify-service-link">
 					<div class="harvestify-service-content">
-						<h4>Crop Disease</h4>
-						<p><b>Predicting the name and causes of crop disease and suggestions to cure it</b></p>
+						<h4>{{ translations.home.disease_service }}</h4>
+						<p><b>{{ translations.home.disease_desc }}</b></p>
 					</div>
 				</a>
 			</div>

@@ -82,34 +82,34 @@
 <div class="soil-body">
   <br /><br />
   <h2 class="soil-heading">
-    Get informed advice on fertilizer based on soil
+    {{ translations.fertilizer.title }}
   </h2>
   <br />
 
   <div class="soil-container">
     <form method="POST" action="{{ url_for('fert_recommend') }}">
       <div class="soil-form-group">
-        <label for="Nitrogen" class="soil-label">Nitrogen</label>
-        <input type="number" class="soil-input" id="Nitrogen" name="nitrogen" placeholder="Enter the value (example:50)"
+        <label for="Nitrogen" class="soil-label">{{ translations.fertilizer.nitrogen }}</label>
+        <input type="number" class="soil-input" id="Nitrogen" name="nitrogen" placeholder="{{ translations.fertilizer.enter_value }}"
           required />
       </div>
 
       <div class="soil-form-group">
-        <label for="Phosphorous" class="soil-label">Phosphorous</label>
+        <label for="Phosphorous" class="soil-label">{{ translations.fertilizer.phosphorous }}</label>
         <input type="number" class="soil-input" id="Phosphorous" name="phosphorous"
-          placeholder="Enter the value (example:50)" required />
+          placeholder="{{ translations.fertilizer.enter_value }}" required />
       </div>
 
       <div class="soil-form-group">
-        <label for="Pottasium" class="soil-label">Pottasium</label>
+        <label for="Pottasium" class="soil-label">{{ translations.fertilizer.pottasium }}</label>
         <input type="number" class="soil-input" id="Pottasium" name="pottasium"
-          placeholder="Enter the value (example:50)" required />
+          placeholder="{{ translations.fertilizer.enter_value }}" required />
       </div>
 
       <div class="soil-form-group">
-        <label for="crop" class="soil-label">Crop you want to grow</label>
+        <label for="crop" class="soil-label">{{ translations.fertilizer.crop }}</label>
         <select name="cropname" class="soil-select" id="crop" required>
-          <option selected>Select crop</option>
+          <option selected>{{ translations.fertilizer.select_crop }}</option>
           <option>rice</option>
           <option>maize</option>
           <option>chickpea</option>
@@ -137,7 +137,7 @@
 
       <div class="soil-button-container">
         <button type="submit" class="soil-submit-btn">
-          Predict
+          {{ translations.fertilizer.predict }}
         </button>
       </div>
     </form>

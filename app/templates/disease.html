@@ -55,18 +55,18 @@
 <div class="plant-body">
   <br /><br />
   <h2 class="plant-heading">
-    Find out which disease has been caught by your plant
+    {{ translations.disease.title }}
   </h2>
   <br /><br />
 
   <div class="plant-container">
     <form class="form-signin" method=post enctype=multipart/form-data>
-      <h2 class="plant-form-title">Please Upload The Image</h2>
+      <h2 class="plant-form-title">{{ translations.disease.image_info }}</h2>
       <input type="file" name="file" class="plant-file-input" id="inputfile" onchange="preview_image(event)">
       <br>
       <br>
       <img id="output-image" class="plant-preview-image" />
-      <button class="plant-submit-btn" type="submit">Predict</button>
+      <button class="plant-submit-btn" type="submit">{{ translations.disease.submit }}</button>
     </form>
   </div>
 

@@ -28,13 +28,127 @@
   animation: pulse 2s infinite;
 }
 
+.sensor-data-card {
+  background: #f0fdf4;
+  border-left: 4px solid #0a7a34;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+
+.sensor-data-title {
+  color: #0a7a34;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.sensor-data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.sensor-data-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #d1e7d8;
+}
+
+.sensor-data-item:last-child {
+  border-bottom: none;
+}
+
+.sensor-data-label {
+  color: #0a7a34;
+  font-weight: 600;
+}
+
+.sensor-data-value {
+  color: #145a32;
+  font-weight: bold;
+}
+
+.home-button {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.home-btn {
+  background: linear-gradient(135deg, #0a7a34 0%, #39c76a 100%);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
 </style>
 
 <div class="farm-prediction-container">
   <div class="farm-prediction-card">
     <h1 class="farm-prediction-title">
-      <b>You should grow <i class="farm-prediction-highlight">{{ prediction }}</i> in your farm</b>
+      <b>{{ translations.crop_result.recommended_crop }}: <i class="farm-prediction-highlight">{{ prediction }}</i></b>
     </h1>
+
+    <!-- Sensor Data Display (if available) -->
+    {% if sensor_data %}
+    <div class="sensor-data-card">
+      <div class="sensor-data-title">
+        📡 ESP32 Sensor Data Used for Prediction:
+      </div>
+      <div class="sensor-data-grid">
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Nitrogen (N):</span>
+          <span class="sensor-data-value">{{ sensor_data.N }} ppm</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Phosphorus (P):</span>
+          <span class="sensor-data-value">{{ sensor_data.P }} ppm</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Potassium (K):</span>
+          <span class="sensor-data-value">{{ sensor_data.K }} ppm</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Temperature:</span>
+          <span class="sensor-data-value">{{ "%.2f"|format(sensor_data.temperature) }} °C</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Humidity:</span>
+          <span class="sensor-data-value">{{ "%.2f"|format(sensor_data.humidity) }} %</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">pH Level:</span>
+          <span class="sensor-data-value">{{ "%.2f"|format(sensor_data.ph) }}</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Moisture (Rainfall):</span>
+          <span class="sensor-data-value">{{ "%.2f"|format(sensor_data.rainfall) }} mm</span>
+        </div>
+        <div class="sensor-data-item">
+          <span class="sensor-data-label">Data Source:</span>
+          <span class="sensor-data-value">{{ sensor_data.source }}</span>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="home-button">
+      <a href="{{ url_for('home') }}" class="home-btn">← Back to Home</a>
+    </div>
   </div>
 </div>
 {% endblock %}
